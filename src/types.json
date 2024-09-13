@@ -1,0 +1,31 @@
+[
+	{
+		"default_value": "",
+		"value": "",
+		"validation": "^[a-zA-Z]+$",
+		"type": "text",
+		"id": "asdjfkfcxmzoie"
+	},
+	{
+		"default_value": 0,
+		"value": 0,
+		"min_value": 0,
+		"max_value": 100,
+		"type": "number",
+		"id": "kczxiofjwejnmfs"
+	},
+	{
+		"default_value": 0,
+		"value": 0,
+		"options": [0, 1],
+		"type": "dropdown",
+		"id": "hjxicbuyejwfiopmnds"
+	},
+	{
+		"default_value": "AGDKSJFLS:DJFS:KDLJFSDF",
+		"value": "",
+		"validation": "",
+		"type": "longtext",
+		"id": "hjxicbdsfsdfsdfw"
+	}
+]
