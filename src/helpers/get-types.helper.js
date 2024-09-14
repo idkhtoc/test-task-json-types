@@ -1,5 +1,5 @@
 import types from '../types.json';
 
 export const getTypes = () => {
-	return types;
+	return types.map((type) => ({ ...type, valid: false }));
 };

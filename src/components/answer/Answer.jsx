@@ -13,7 +13,8 @@ const Answer = ({hide, answer}) => {
 };
 
 Answer.propTypes = {
-	hide: PropTypes.bool
+	hide: PropTypes.bool,
+	answer: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Answer;

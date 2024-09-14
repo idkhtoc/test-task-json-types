@@ -6,42 +6,23 @@ import Field from '../field/Field';
 import { getTypes } from '../../helpers/get-types.helper';
 
 const Form = ({ showAnswer }) => {
-
 	const [types, setTypes] = useState(getTypes());
-	const [error, setError] = useState("");
 
 	const onSubmit = (e) => {
 		e.preventDefault();
 
-		if (!validate()) {
-			showError("Wrong input!");
-			return;
-		}
-
-		setError("");
+		if (!areValid()) return;
 
 		showAnswer(types);
 	};
 
-	const validate = () => {
-		for (let type of types) {
-			if (typeof(type.value) === "string") {
-				const regex = new RegExp(type.validation || "");
-
-				if (!regex.test(type.value)) return false;
-			}
-		}
-		
-		return true;
+	const addValue = (id, value, isValidated) => {
+		setTypes((data) => data.map( (field) => field.id == id ? { ...field, value, valid: isValidated } : field));
 	};
 
-	const addValue = (id, value) => {
-		setTypes((data) => data.map( (field) => field.id == id ? { ...field, value } : field));
-	};
-
-	const showError = (msg) => {
-		setError(msg);
-	};
+	const areValid = () => {
+		return types.every((field) => field.valid);
+  };
 
 	return (
 		<div className='form'>
@@ -57,7 +38,6 @@ const Form = ({ showAnswer }) => {
 						/>
 					))
 				}
-				<div className='error'>{error}</div>
 				<button type='submit' className='submit'>SUBMIT</button>
 			</form>
 		</div>
